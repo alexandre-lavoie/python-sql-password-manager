@@ -1,5 +1,5 @@
 from hashlib import sha256
-from Cryptodome.Cipher import AES 
+from Crypto.Cipher import AES
 from pbkdf2 import PBKDF2
 import hashlib
 from base64 import b64encode, b64decode

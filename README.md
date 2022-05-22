@@ -7,13 +7,10 @@ A Password Manager to securely manage and store passwords with URL, username, an
 A docker container with PostgresSQL is used to store passwords. To setup the a new Docker container, with PostgreSQL installed, refer to this article: https://dev.to/andre347/how-to-easily-create-a-postgres-database-in-docker-4moj - super easy setup! Follow the outlined steps within the article.
 
 ## Requried Libraries  
-- Hashlib
-- Cryptodome
-- pbkdf2
-- psycopg2
-- os
-- getpass
-- sys 
+
+```
+pip3 install -r requirements.txt
+```
 
 ## Setup  
 
