@@ -103,11 +103,15 @@ class Database(ABC):
         return [PasswordEntry(entry=entry) for entry in self.execute(query, *[value for label, value in conditions])]
 
     def insert_account(self, url: str, username: str, encrypted_password: str) -> bool:
-        return self.execute("INSERT INTO Vault(url, username, password) VALUES (?, ?, ?)", url, username, encrypted_password)
+        result = True
+
+        self.execute("INSERT INTO Vault(url, username, password) VALUES (?, ?, ?)", url, username, encrypted_password)
+
+        return result
 
     def update_account(self, url: str, new_url: str=None, username: str=None, encrypted_password: str=None) -> bool:
         if username is None and encrypted_password is None:
-            return None
+            return False
 
         result = True
 

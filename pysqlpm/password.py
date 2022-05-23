@@ -6,11 +6,9 @@ from base64 import b64encode, b64decode
 
 class Password:
     key: bytes
-    salt: str
 
     def __init__(self, master: str, salt: str, iterations: int=1000):
-        self.salt = salt
-        self.key = PBKDF2(master, salt=self.salt.encode(), iterations=iterations).read(32)
+        self.key = PBKDF2(master, salt=salt.encode(), iterations=iterations).read(32)
 
     @classmethod
     def generate_password(cls, length: int) -> str:
